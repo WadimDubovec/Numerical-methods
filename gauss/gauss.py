@@ -129,6 +129,7 @@ def main():
     print(f"\n{'#'*50}\nВектор невязки:")
 
 
+
 if __name__ == "__main__":
     main()
 
