@@ -32,10 +32,11 @@ def gauss_method(matrix, vector):
             print("\nЭлемент на главной диагонали равен 0. Решений нет.")
             return
 
-        # Деление строки на ведущий элемент
+        # Деление строки на первый элемент строки
         divisor = matrix[i][i]
         matrix[i] = [elem / divisor for elem in matrix[i]]
         vector[i] /= divisor
+
 
         # Вычитание строк
         for k in range(i + 1, n):
@@ -49,15 +50,17 @@ def gauss_method(matrix, vector):
         for j in range(n):
             print(matrix[j], "|", vector[j])
 
-        # Обратный ход метода Гаусса
-        x = [0 for _ in range(n)]
-        for i in range(n - 1, -1, -1):
-            x[i] = vector[i]
-            print(f"\nШаг {n - i}: x[{i}] = {x[i]}")
-            for k in range(i + 1, n):
-                x[i] -= matrix[i][k] * x[k]
-                print(f"Вычитаем {matrix[i][k]} * {x[k]} =", matrix[i][k] * x[k])
-            print(f"Итого: x[{i}] =", x[i])
+    print('\n' + '#' * 50)
+
+    # Обратный ход метода Гаусса
+    x = [0 for _ in range(n)]
+    for i in range(n - 1, -1, -1):
+        x[i] = vector[i]
+        print(f"\nШаг {n - i}: x[{i}] = {x[i]}")
+        for k in range(i + 1, n):
+            x[i] -= matrix[i][k] * x[k]
+            print(f"Вычитаем {matrix[i][k]} * {x[k]} =", matrix[i][k] * x[k])
+        print(f"Итого: x[{i}] =", x[i])
 
     # Вывод решения системы уравнений
     print("\nРешение системы уравнений:")
