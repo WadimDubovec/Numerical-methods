@@ -1,3 +1,5 @@
+# other
+
 def gauss_method(matrix, vector):
     n = len(matrix)
 
